@@ -1,5 +1,6 @@
 package com.CadastroDeAlgo.CadastroDeAlgo.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.validation.annotation.Validated;
@@ -26,6 +27,7 @@ public class PersonModel {
     private String email;
 
     @ManyToMany(mappedBy = "persons")
+    @JsonIgnore
     private Set<JobModel> jobs = new HashSet<>();
 
 
