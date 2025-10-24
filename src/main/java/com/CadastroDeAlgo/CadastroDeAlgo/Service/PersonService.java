@@ -3,6 +3,8 @@ package com.CadastroDeAlgo.CadastroDeAlgo.Service;
 import com.CadastroDeAlgo.CadastroDeAlgo.Model.PersonModel;
 import com.CadastroDeAlgo.CadastroDeAlgo.Repository.PersonRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 import java.util.Optional;
@@ -31,5 +33,21 @@ public class PersonService{
     //create
     public PersonModel register(PersonModel person){
         return _personRepository.save(person);
+    }
+
+    //delete
+    public void delete(UUID uuid){
+        _personRepository.deleteById(uuid);
+    }
+
+    //update
+    public PersonModel update(UUID uuid, PersonModel person){
+      if(_personRepository.existsById(uuid)){
+          person.setId(uuid);
+          return _personRepository.save(person);
+      }
+
+      return null;
+
     }
 }

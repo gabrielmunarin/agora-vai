@@ -35,4 +35,9 @@ public class JobController {
     public void register(@RequestBody JobModel job){
         _jobService.register(job);
     }
+
+    @DeleteMapping("{uuid}")
+    public void delete(@PathVariable UUID uuid){
+        _jobService.delete(uuid);
+    }
 }

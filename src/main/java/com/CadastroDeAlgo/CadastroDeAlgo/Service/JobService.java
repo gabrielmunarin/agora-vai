@@ -37,5 +37,10 @@ public class JobService {
         return _jobRepository.save(job);
     }
 
+    //delete
+    public void delete(UUID uuid){
+        _jobRepository.deleteById(uuid);
+    }
+
 
 }
