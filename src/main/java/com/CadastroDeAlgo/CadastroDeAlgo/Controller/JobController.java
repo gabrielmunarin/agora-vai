@@ -3,10 +3,7 @@ package com.CadastroDeAlgo.CadastroDeAlgo.Controller;
 import com.CadastroDeAlgo.CadastroDeAlgo.Model.JobModel;
 import com.CadastroDeAlgo.CadastroDeAlgo.Service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.UUID;
@@ -32,5 +29,10 @@ public class JobController {
     public JobModel findById(@PathVariable UUID uuid){
         var job = _jobService.findById(uuid);
         return job;
+    }
+
+    @PostMapping
+    public void register(@RequestBody JobModel job){
+        _jobService.register(job);
     }
 }

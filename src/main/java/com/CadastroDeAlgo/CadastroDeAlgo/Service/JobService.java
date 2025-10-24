@@ -31,5 +31,11 @@ public class JobService {
         return job.orElse(null);
     }
 
+    //criar
+    public JobModel register(JobModel job){
+        System.out.println(job);
+        return _jobRepository.save(job);
+    }
+
 
 }
