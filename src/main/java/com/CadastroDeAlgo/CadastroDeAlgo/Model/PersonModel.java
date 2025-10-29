@@ -30,5 +30,8 @@ public class PersonModel {
     @JsonIgnore
     private Set<JobModel> jobs = new HashSet<>();
 
+    @Column(name = "img_url")
+    private String imgUrl;
+
 
 }

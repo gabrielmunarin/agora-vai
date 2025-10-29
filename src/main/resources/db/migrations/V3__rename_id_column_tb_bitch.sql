@@ -1,0 +1,1 @@
+ALTER TABLE tb_bitch RENAME COLUMN uuid TO id;

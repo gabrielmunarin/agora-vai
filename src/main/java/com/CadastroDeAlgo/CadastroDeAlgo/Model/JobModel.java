@@ -31,5 +31,13 @@ public class JobModel {
     )
     private List<PersonModel> persons;
 
+    @ManyToMany
+    @JoinTable(
+            name = "job_bitch",
+            joinColumns = @JoinColumn(name = "job_id"),
+            inverseJoinColumns = @JoinColumn(name = "bitch_id")
+    )
+    private List<BitchModel> bitches;
+
 
 }

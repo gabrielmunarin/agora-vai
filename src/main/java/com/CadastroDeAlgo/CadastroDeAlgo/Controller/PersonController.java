@@ -1,5 +1,6 @@
 package com.CadastroDeAlgo.CadastroDeAlgo.Controller;
 
+import com.CadastroDeAlgo.CadastroDeAlgo.DTO.Person.PersonDTO;
 import com.CadastroDeAlgo.CadastroDeAlgo.Model.PersonModel;
 import com.CadastroDeAlgo.CadastroDeAlgo.Service.PersonService;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +21,8 @@ public class PersonController {
 
 
     @GetMapping
-    public ResponseEntity<List<PersonModel>> listAll(){
+    public ResponseEntity<List<PersonDTO>> listAll(){
+
         return ResponseEntity.ok(_personService.listAll());
     }
 
@@ -32,11 +34,11 @@ public class PersonController {
     }
 
     @PostMapping
-    public ResponseEntity<PersonModel> register(@RequestBody PersonModel person){
-        return ResponseEntity.ok(_personService.register(person));
+    public ResponseEntity<PersonDTO> register(@RequestBody PersonDTO personDTO){
+        return ResponseEntity.ok(_personService.register(personDTO));
     }
 
-    @PutMapping
+    @PutMapping("{uuid}")
     public PersonModel update(@PathVariable UUID uuid, @RequestBody PersonModel person){
         return _personService.update(uuid, person);
     }

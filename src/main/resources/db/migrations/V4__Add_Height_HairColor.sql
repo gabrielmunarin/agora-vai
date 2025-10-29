@@ -1,0 +1,5 @@
+ALTER TABLE tb_bitch
+ADD COLUMN hair_color VARCHAR(255);
+
+ALTER TABLE tb_bitch
+ADD COLUMN height DECIMAL;

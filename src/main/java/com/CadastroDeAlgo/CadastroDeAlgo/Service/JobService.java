@@ -42,5 +42,14 @@ public class JobService {
         _jobRepository.deleteById(uuid);
     }
 
+    //update
+    public JobModel update(UUID uuid, JobModel job){
+        if(_jobRepository.existsById(uuid)){
+            job.setId(uuid);
+            return _jobRepository.save(job);
+        }
+        return null;
+    }
+
 
 }

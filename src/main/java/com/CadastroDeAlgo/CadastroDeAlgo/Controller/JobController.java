@@ -40,4 +40,9 @@ public class JobController {
     public void delete(@PathVariable UUID uuid){
         _jobService.delete(uuid);
     }
+
+    @PutMapping("{uuid}")
+    public JobModel update(@PathVariable UUID uuid, @RequestBody  JobModel job){
+        return _jobService.update(uuid, job);
+    }
 }
